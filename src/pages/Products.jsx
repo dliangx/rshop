@@ -23,8 +23,9 @@ const Products = () => {
               onClick={() => addToCart(product)}
               disabled={isInCart(product.id)}
               style={{
-                backgroundColor: isInCart(product.id) ? '#95a5a6' : '#3498db',
-                cursor: isInCart(product.id) ? 'not-allowed' : 'pointer'
+                backgroundColor: isInCart(product.id) ? 'var(--text-secondary)' : 'var(--primary-color)',
+                cursor: isInCart(product.id) ? 'not-allowed' : 'pointer',
+                opacity: isInCart(product.id) ? 0.8 : 1
               }}
             >
               {isInCart(product.id) ? '已在购物车' : '加入购物车'}
