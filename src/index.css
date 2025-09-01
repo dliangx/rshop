@@ -19,6 +19,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* 允许输入框选择文本 */
+input, textarea {
+  -webkit-user-select: text;
+  user-select: text;
 }
 
 a {
@@ -34,10 +43,16 @@ a:active {
 
 body {
   margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
+  width: 390px;
+  height: 844px;
   background-color: #f8fafc;
   overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  /* 添加圆角边框 */
+  border-radius: 40px;
 }
 
 h1 {
