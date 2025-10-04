@@ -20,15 +20,15 @@ RUN apt-get update && apt-get install -y \
     libappindicator3-dev \
     librsvg2-dev \
     libasound2-dev \
+    libsoup-3.0-dev \
+    libjavascriptcoregtk-4.1-dev\
+    libwebkit2gtk-4.1-dev \
     git \
     && rm -rf /var/lib/apt/lists/*
 
 # 安装Node.js (使用NodeSource repository)
 RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
     && apt-get install -y nodejs
-
-# 安装Tauri CLI
-RUN cargo install tauri-cli --version "^2.0"
 
 # 设置工作目录
 WORKDIR /app
@@ -39,8 +39,4 @@ COPY package*.json ./
 # 安装Node.js依赖
 RUN npm install
 
-# 复制项目文件
-COPY . .
-
-# 设置构建命令
-CMD ["npm", "run", "tauri:build:linux"]
+#构建的镜像跟项目无关
